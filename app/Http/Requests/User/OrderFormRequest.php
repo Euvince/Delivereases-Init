@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleFormRequest extends FormRequest
+class OrderFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,12 @@ class ArticleFormRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'status' => ['required', 'string'],
             'libelle' => ['required'],
-            'commande_id' => ['required', 'exists:commandes,id']
+            'user_id' => ['required', 'exists:users,id'],
+            'orderDate' => ['required', 'date'],
+            'totalPrice' => ['required'],
+            'delivery_id' => ['required', 'exists:delivereases,id']
         ];
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
+use App\Models\SubCategory;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserFormRequest;
+use App\Http\Requests\Admin\SubCategoryFormRequest;
 
-class UserController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +27,15 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserFormRequest $request)
+    public function store(SubCategoryFormRequest $request)
     {
-        User::create($request->validated());
+        SubCategory::create($request->validated());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(SubCategory $subCategory)
     {
         //
     }
@@ -43,7 +43,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(SubCategory $subCategory)
     {
         //
     }
@@ -51,16 +51,16 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserFormRequest $request, User $user)
+    public function update(SubCategoryFormRequest $request, SubCategory $subCategory)
     {
-        $user->update($request->validated());
+        $subCategory->update($request->validated());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(SubCategory $subCategory)
     {
-        $user->delete();
+        $subCategory->delete();
     }
 }

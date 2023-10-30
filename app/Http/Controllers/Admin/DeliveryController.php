@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Delivery;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CommandeFormRequest;
-use App\Models\Commande;
+use App\Http\Requests\Admin\DeliveryFormRequest;
 
-class CommandeController extends Controller
+class DeliveryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +27,15 @@ class CommandeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CommandeFormRequest $request)
+    public function store(DeliveryFormRequest $request)
     {
-        Commande::create($request->validated());
+        Delivery::create($request->validated());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Commande $commande)
+    public function show(Delivery $delivery)
     {
         //
     }
@@ -43,7 +43,7 @@ class CommandeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Commande $commande)
+    public function edit(Delivery $livraison)
     {
         //
     }
@@ -51,16 +51,16 @@ class CommandeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CommandeFormRequest $request, Commande $commande)
+    public function update(DeliveryFormRequest $request, Delivery $delivery)
     {
-        $commande->update($request->validated());
+        $delivery->update($request->validated());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Commande $commande)
+    public function destroy(Delivery $delivery)
     {
-        $commande->delete();
+        $delivery->delete();
     }
 }

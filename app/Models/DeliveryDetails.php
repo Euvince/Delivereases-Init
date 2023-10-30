@@ -14,8 +14,10 @@ class DeliveryDetails extends Model
 
     protected $fillable = [
         'client',
+        'status',
         'livreur',
         'dateLivraison',
+        'adresseLivraison'
     ];
 
     public function Delivery(): BelongsTo {

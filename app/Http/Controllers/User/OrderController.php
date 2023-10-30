@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
+use App\Models\Order;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\LivraisonFormRequest;
-use App\Models\Livraison;
+use App\Http\Requests\User\OrderFormRequest;
 
-class LivraisonController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +27,15 @@ class LivraisonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LivraisonFormRequest $request)
+    public function store(OrderFormRequest $request)
     {
-        Livraison::create($request->validated());
+        Order::create($request->validated());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Livraison $livraison)
+    public function show(Order $order)
     {
         //
     }
@@ -43,7 +43,7 @@ class LivraisonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Livraison $livraison)
+    public function edit(Order $order)
     {
         //
     }
@@ -51,16 +51,16 @@ class LivraisonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(LivraisonFormRequest $request, Livraison $livraison)
+    public function update(OrderFormRequest $request, Order $order)
     {
-        $livraison->update($request->validated());
+        $order->update($request->validated());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Livraison $livraison)
+    public function destroy(Order $order)
     {
-        $livraison->delete();
+        $order->delete();
     }
 }

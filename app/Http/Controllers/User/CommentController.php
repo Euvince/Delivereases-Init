@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
-use App\Models\User;
+use App\Models\Comment;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserFormRequest;
+use App\Http\Requests\User\CommentFormRequest;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +27,15 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserFormRequest $request)
+    public function store(CommentFormRequest $request)
     {
-        User::create($request->validated());
+        Comment::create($request->validated());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Comment $comment)
     {
         //
     }
@@ -43,7 +43,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -51,16 +51,16 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserFormRequest $request, User $user)
+    public function update(CommentFormRequest $request, Comment $comment)
     {
-        $user->update($request->validated());
+        $comment->update($request->validate());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Comment $comment)
     {
-        $user->delete();
+        $comment->delete();
     }
 }

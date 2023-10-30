@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Commentaire;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CommentaireFormRequest;
+use App\Http\Requests\CategoryFormRequest;
 
-class CommentaireController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +27,15 @@ class CommentaireController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CommentaireFormRequest $request)
+    public function store(CategoryFormRequest $request)
     {
-        Commentaire::create($request->validated());
+        Category::create($request->validated());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Commentaire $commentaire)
+    public function show(Category $category)
     {
         //
     }
@@ -43,7 +43,7 @@ class CommentaireController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Commentaire $commentaire)
+    public function edit(Category $category)
     {
         //
     }
@@ -51,16 +51,16 @@ class CommentaireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CommentaireFormRequest $request, Commentaire $commentaire)
+    public function update(CategoryFormRequest $request, Category $category)
     {
-        $commentaire->update($request->validate());
+        $category->update($request->validated());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Commentaire $commentaire)
+    public function destroy(Category $category)
     {
-        $commentaire->delete();
+        $category->delete();
     }
 }

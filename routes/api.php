@@ -3,10 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\Admin\CommandeController;
-use App\Http\Controllers\Admin\LivraisonController;
-use App\Http\Controllers\Admin\CommentaireController;
+use App\Http\Controllers\User\OrderController;
+use App\Http\Controllers\User\CommentController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DeliveryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,19 +26,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('article', ArticleController::class)->except('show');
+    Route::resource('category', CategoryController::class)->except('show');
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('commande', CommandeController::class)->except('show');
+    Route::resource('subCategory', SubCategoryController::class)->except('show');
+});
+
+Route::group(['middleware' => [/* 'auth' */], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('product', ProductController::class)->except('show');
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('Livraison', LivraisonController::class)->except('show');
+    Route::resource('order', OrderController::class)->except('show');
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('commentaire', CommentaireController::class)->except('show');
+    Route::resource('delivery', DeliveryController::class)->except('show');
+});
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('comment', CommentController::class)->except('show');
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {

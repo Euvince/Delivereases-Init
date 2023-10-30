@@ -4,14 +4,14 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LivraisonFormRequest extends FormRequest
+class SubCategoryFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,9 @@ class LivraisonFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'libelle' => ['required'],
-            'user_id' => ['required', 'exists:users,id']
+            'name' => ['required'],
+            'description' => ['required'],
+            'category_id' => ['required', 'exists:categories,id']
         ];
     }
 }

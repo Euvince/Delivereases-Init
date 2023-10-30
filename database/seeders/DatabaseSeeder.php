@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\User::factory()->count(15)->create()->each(function ($user) {
-            \App\Models\Commentaire::factory()->count(rand(2, 3))->create([
+            \App\Models\Comment::factory()->count(rand(2, 3))->create([
                 'user_id' => $user->id
             ]);
-            \App\Models\Commande::factory()->count(rand(2, 5))->create([
+            \App\Models\Order::factory()->count(rand(2, 5))->create([
                 'user_id' => $user->id
             ])->each(function ($commande) {
-                \App\Models\Article::factory()->count(rand(5, 10))->create([
+                \App\Models\Product::factory()->count(rand(5, 10))->create([
                     'commande_id' => $commande->id
                 ]);
             });

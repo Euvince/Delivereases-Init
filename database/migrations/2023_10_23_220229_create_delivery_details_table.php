@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('client');
             $table->string('livreur');
             $table->string('adresseLivraison');
+            $table->date('dateLivraison');
             $table->string('status');
             $table->foreignIdFor(Delivery::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
